@@ -1,0 +1,21 @@
+﻿{
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "WarehousesStocks.Program": "Debug"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:/Projects/WarehousesStocks/WarehousesStocks/logs/WarehousesStocks-.log",
+          "rollingInterval": "Day",
+          "rollOnFileSizeLimit": true,
+          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message}{NewLine}{Exception}"
+        }
+      }
+    ]
+  }
+}
