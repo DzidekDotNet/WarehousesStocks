@@ -6,7 +6,9 @@ namespace WarehousesStocks.Products
     {
         internal static IServiceCollection AddProducts(this IServiceCollection services)
         {
-            services.AddTransient<IStreamLinesReader, StreamLinesReader>();
+            services.AddTransient<StreamLinesReader>()
+                .AddTransient<IProductsReader, ProductsReader>()
+                .AddTransient<IProductLineParser, ProductLineParser>();
             return services;
         }
     }

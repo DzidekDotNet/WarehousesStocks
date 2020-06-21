@@ -2,7 +2,13 @@
 {
     public class ProductWarehouse
     {
-        internal string Name { get; }
-        internal int Amount { get; }
+        public string Name { get; }
+        public int Amount { get; }
+
+        internal ProductWarehouse(string name, int amount)
+        {
+            Name = name;
+            Amount = amount;
+        }
     }
 }

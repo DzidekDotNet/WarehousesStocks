@@ -12,7 +12,7 @@ namespace WarehousesStocks.Tests
     public class WarehousesStocksServiceTest
     {
         private readonly WarehousesStocksService target;
-        private readonly Mock<IProductReader> productReaderMock = new Mock<IProductReader>();
+        private readonly Mock<IProductsReader> productReaderMock = new Mock<IProductsReader>();
 
         private readonly Mock<IWarehouseReportGenerator> warehouseReportGeneratorMock =
             new Mock<IWarehouseReportGenerator>();
@@ -83,24 +83,14 @@ WH-A (total 21)
 Product Id 1: 5
 Product Id 2: 15
 Product Id 4: 1")]
-        public async void Run_ShouldReturnValues(string input, string expected)
+        public async void Run_ShouldReturnValue(string input, string expected)
         {
-            StringBuilder result = await target.Run(GenerateInputStream(input));
+            StringBuilder result = await target.Run(GenerateInputStreamHelper.GenerateInputStream(input));
 
-            productReaderMock.Verify(x => x.GetProductsData(It.IsAny<Stream>()), Times.Once);
+            productReaderMock.Verify(x => x.GetProducts(It.IsAny<Stream>()), Times.Once);
             warehouseReportGeneratorMock.Verify(x => x.Generate(It.IsAny<IEnumerable<Product>>()), Times.Once);
 
             Assert.Equal(expected, result.ToString());
-        }
-
-        private static Stream GenerateInputStream(string input)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(input);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
         }
     }
 }

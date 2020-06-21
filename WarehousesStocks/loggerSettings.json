@@ -3,7 +3,9 @@
     "MinimumLevel": {
       "Default": "Information",
       "Override": {
-        "WarehousesStocks.Program": "Debug"
+        "WarehousesStocks.Program": "Debug",
+        "WarehousesStocks.WarehousesStocksService": "Debug",
+        "WarehousesStocks.Products.ProductsReader": "Verbose"
       }
     },
     "WriteTo": [

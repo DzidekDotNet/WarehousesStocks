@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace WarehousesStocks.Products
 {
-    internal interface IProductReader
+    internal interface IProductsReader
     {
-        Task<IEnumerable<Product>> GetProductsData(Stream stream);
+        Task<IEnumerable<Product>> GetProducts(Stream stream);
     }
 }
