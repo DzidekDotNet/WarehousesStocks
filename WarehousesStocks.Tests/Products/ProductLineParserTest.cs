@@ -26,8 +26,8 @@ namespace WarehousesStocks.Tests.Products
             Assert.Equal(expected.Warehouses.Count(), result.Warehouses.Count());
             foreach (ProductWarehouse productWarehouse in expected.Warehouses)
             {
-                Assert.True(result.Warehouses.Any(x =>
-                    x.Amount == productWarehouse.Amount && x.Name == productWarehouse.Name));
+                Assert.Contains(result.Warehouses, x =>
+                    x.Amount == productWarehouse.Amount && x.Name == productWarehouse.Name);
             }
         }
 
