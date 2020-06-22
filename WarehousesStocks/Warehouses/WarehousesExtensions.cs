@@ -6,7 +6,10 @@ namespace WarehousesStocks.Warehouses
     {
         internal static IServiceCollection AddWarehouses(this IServiceCollection services)
         {
-            services.AddTransient<IWarehouseReportGenerator, WarehouseReportGenerator>();
+            services
+                .AddTransient<IWarehousesReportGenerator, WarehousesReportGenerator>()
+                .AddTransient<IWarehousesReportDataCreator, WarehousesReportDataCreator>()
+                .AddTransient<IWarehousesReportFormatter, WarehousesReportFormatter>();
             return services;
         }
     }

@@ -18,7 +18,7 @@ namespace WarehousesStocks.Tests.Products
 
         [Theory]
         [MemberData(nameof(ProductsTestData))]
-        public async void GetProducts_ShouldReturnValue(string input, Product expected)
+        public async void GetProducts_ShouldReturnProduct(string input, Product expected)
         {
             Product result = await target.ParseLine(input);
             Assert.Equal(expected.Id, result.Id);

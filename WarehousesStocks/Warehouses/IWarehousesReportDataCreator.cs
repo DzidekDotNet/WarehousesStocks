@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using WarehousesStocks.Products;
 
 namespace WarehousesStocks.Warehouses
 {
-    internal interface IWarehouseReportGenerator
+    public interface IWarehousesReportDataCreator
     {
-        Task<StringBuilder> Generate(IEnumerable<Product> products);
+        Task<IEnumerable<Warehouse>> CreateReportData(IEnumerable<Product> products);
     }
 }

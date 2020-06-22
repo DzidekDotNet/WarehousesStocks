@@ -44,7 +44,7 @@ namespace WarehousesStocks.Tests.Products
 
         [Theory]
         [MemberData(nameof(ProductsTestData))]
-        public async void GetProducts_ShouldReturnValue(string input, IEnumerable<Product> expected)
+        public async void GetProducts_ShouldReturnExpectedValue(string input, IEnumerable<Product> expected)
         {
             IEnumerable<Product> result =
                 await target.GetProducts(GenerateInputStreamHelper.GenerateInputStream(input));
